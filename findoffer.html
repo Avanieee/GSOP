@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Sharing | Carpooling</title>
+    <link rel="stylesheet" href="findoff.css">
+</head>
+<body>
+    <div class="ride-container">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Logout</a>
+        </nav>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('find-ride')">Find a Ride</button>
+            <button class="tab" onclick="showTab('offer-ride')">Offer a Ride</button>
+        </div>
+
+        <div id="find-ride" class="tab-content active">
+            <h2>Find a Ride</h2>
+            <p>You are helping to reduce traffic congestion inside the city!</p>
+            <form>
+                <input type="text" placeholder="From" required>
+                <input type="text" placeholder="To" required>
+                <input type="date" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div id="offer-ride" class="tab-content">
+            <h2>Offer a Ride</h2>
+            <p>You are helping colleagues, reducing traffic & saving the environment!</p>
+            <form>
+                <input type="text" placeholder="From" required>
+                <input type="text" placeholder="To" required>
+                <input type="text" placeholder="Via" required>
+                <input type="number" placeholder="Seats Available" required>
+                <input type="date" required>
+                <button type="submit">Offer</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
